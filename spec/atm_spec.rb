@@ -55,6 +55,4 @@ describe Atm do
         expected_output = { status: false, message: 'account is disabled', date: Date.today}
         expect(subject.withdraw(50, '1234', account)). to eq expected_output
     end
-
-
 end
