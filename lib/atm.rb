@@ -5,8 +5,9 @@ class Atm
         @funds = 1000
     end
 
-    def withdraw(amount, account)
-        case 
+    def withdraw(amount, pin_code, account)
+        case
+        # pin_code
         when insufficient_funds_in_account?(amount, account)
             { status: false, message: 'insufficient funds', date: Date.today }
         when insufficient_funds_in_atm?(amount)
@@ -16,19 +17,19 @@ class Atm
         end
     end
 
-        private
+    private
 
-        def insufficient_funds_in_atm?(amount)
-            @funds < amount
-        end
-
-        def insufficient_funds_in_account?(amount, account)
-         amount > account.balance
-        end
-
-        def perform_transaction(amount, account)
-            @funds -= amount
-            account.balance = account.balance - amount
-            {status: true, message: 'success', date: Date.today, amount: amount}
-        end
+    def insufficient_funds_in_atm?(amount)
+        @funds < amount
     end
+
+    def insufficient_funds_in_account?(amount, account)
+        amount > account.balance
+    end
+
+    def perform_transaction(amount, account)
+        @funds -= amount
+        account.balance = account.balance - amount
+        {status: true, message: 'success', date: Date.today, amount: amount}
+    end
+end
