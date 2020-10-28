@@ -4,7 +4,7 @@ describe Account do
     # We create the double in our 'describe' block and give him one single attribute
     let(:person) {instance_double('Person', name: 'Thomas')}
     # and modify our 'subject'
-    subject {described_class.new({owner: person}) }
+    subject { described_class.new({owner: person}) }
 
     it 'ensure the pin_code is an Integer' do
         expect(subject.pin_code).to be_an(Integer)
@@ -18,7 +18,7 @@ describe Account do
     end
 
     it 'randomize the pin_code' do
-        account = Account.new
+        account = described_class.new({owner: person})
         # 👆 We initialize a new instance of Account in order to compare the pin_code against the existing instance of Account known as subject.
         # In order to create an instance of Account, we need one argument because initialize method of Account class has one parameter; that's why we have (100) here.
         expect(subject.pin_code).not_to eq(account.pin_code)
