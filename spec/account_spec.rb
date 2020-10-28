@@ -1,6 +1,11 @@
 require './lib/account.rb'
 
 describe Account do
+    # We create the double in our 'describe' block and give him one single attribute
+    let(:person) {instance_double('Person', name: 'Thomas')}
+    # and modify our 'subject'
+    subject {described_class.new({owner: person}) }
+
     it 'ensure the pin_code is an Integer' do
         expect(subject.pin_code).to be_an(Integer)
         # we expect the account's pin code is an Integer or we compare the account's pin code to be an integer type using method `be_an`.
@@ -32,5 +37,13 @@ describe Account do
         #You use Instance Methods when you need to act on a particular instance of the class.
         subject.deactivate
         expect(subject.account_status).to eq :deactivated
+    end
+
+    it 'is expected to have an owner' do
+        expect(subject.owner).to eq person
+    end
+
+    it 'it expected to raise error if no owner is set' do
+        expect { described_class.new }.to raise_error 'An Account owner is required'
     end
 end
