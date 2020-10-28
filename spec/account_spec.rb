@@ -18,7 +18,7 @@ describe Account do
     end
 
     it 'randomize the pin_code' do
-        account = Account.new
+        account = Account.new({owner: person})
         # 👆 We initialize a new instance of Account in order to compare the pin_code against the existing instance of Account known as subject.
         # In order to create an instance of Account, we need one argument because initialize method of Account class has one parameter; that's why we have (100) here.
         expect(subject.pin_code).not_to eq(account.pin_code)
