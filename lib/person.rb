@@ -1,22 +1,21 @@
 require './lib/atm.rb'
 
 class Person 
-  attr_accessor :name, :cash, :account, :atm
+  attr_accessor :name, :cash, :account
 
   def initialize(attrs = {})
     set_name(attrs[:name])
     @cash = 0
     @account = nil
-    @atm = Atm.new
     #Go over nil  
   end
 
-  def set_name (obj)
-    obj == nil ? raise_error : @name = obj
-  end
-
-  def raise_error 
-    raise 'A name is required'
+  def set_name (name)
+    if name == nil
+        missing_name
+    else 
+      @name = name
+    end
   end
 
   def create_account
@@ -33,15 +32,28 @@ class Person
     end
   end
 
+
   def withdraw(argument)
     if argument[:atm] == nil then
-      raise 'An ATM is required'
-    else
+      return missing_atm
+    else 
       amount = argument[:amount]
       pin_code = argument[:pin]
-      account = @account 
+      account = @account
+      @cash += amount
+      @account.balance -=amount 
     end
   end 
+
+  private
+
+  def missing_name
+    raise 'A name is required'
+  end
+
+  def missing_atm
+    raise 'An ATM is required'
+  end
 
   def missing_account
     raise 'No account present'

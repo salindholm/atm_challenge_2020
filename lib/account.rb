@@ -22,11 +22,12 @@ class Account
     end
 
     private
-    def set_owner(obj)
-        if obj == nil then
+    
+    def set_owner(owner)
+        if owner == nil then
             missing_owner 
         else
-            @owner = obj
+            @owner = owner
         end
     #A ternary operator is made of three parts, that’s where the word “ternary” comes from. These parts include a conditional statement & two possible outcomes.
     end
