@@ -17,8 +17,8 @@ class Account
         Date.today.next_year(STANDARD_VALIDITY_YRS).strftime('%m/%y')
     end
 
-    def deactivate
-        @account_status = :deactivated
+    def disable 
+        @account_status = :disabled
     end
 
     private

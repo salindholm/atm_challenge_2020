@@ -34,10 +34,10 @@ describe Account do
         expect(subject.account_status).to eq :active
     end
 
-    it 'deactivates account using the instance method' do
+    it 'is set account to disabled using the instance method' do
         #You use Instance Methods when you need to act on a particular instance of the class.
-        subject.deactivate
-        expect(subject.account_status).to eq :deactivated
+        subject.disable
+        expect(subject.account_status).to eq :disabled
     end
 
     it 'is expected to have an owner' do
