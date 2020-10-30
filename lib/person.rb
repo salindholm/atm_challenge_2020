@@ -38,7 +38,7 @@ class Person
       return missing_atm
     else 
       amount = argument[:amount]
-      pin = argument[:pin]
+      pin = argument[:pin_code]
       atm = argument[:atm]
       output = atm.withdraw(amount, pin, account)
       if output[:status] == true then
