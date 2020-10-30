@@ -21,7 +21,9 @@ We want to assign each account to a separate person
 ```
 ## Dependencies
 
-RSpec for testing
+Source 'https://rubygems.org'
+
+- gem 'rspec'
 
 ## Setup
 
