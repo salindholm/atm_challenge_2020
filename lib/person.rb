@@ -7,7 +7,7 @@ class Person
     set_name(attrs[:name])
     @cash = 0
     @account = nil
-    #Go over nil  
+  
   end
 
   def set_name (name)

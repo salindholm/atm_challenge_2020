@@ -1,15 +1,14 @@
 require './lib/account.rb'
 
 describe Account do
-    # We create the double in our 'describe' block and give him one single attribute
+   
     let(:person) {instance_double('Person', name: 'Thomas')}
-    # and modify our 'subject'
+   
     subject { described_class.new({owner: person}) }
 
     it 'ensure the pin_code is an Integer' do
         expect(subject.pin_code).to be_an(Integer)
-        # we expect the account's pin code is an Integer or we compare the account's pin code to be an integer type using method `be_an`.
-        # Why Integer? It's because Integer is a number without decimal
+        
     end
 
     it 'check the pin_code has 4 digits' do
@@ -20,8 +19,7 @@ describe Account do
     it 'randomize the pin_code' do
         account = Account.new({owner: person})
         account = described_class.new({owner: person})
-        # 👆 We initialize a new instance of Account in order to compare the pin_code against the existing instance of Account known as subject.
-        # In order to create an instance of Account, we need one argument because initialize method of Account class has one parameter; that's why we have (100) here.
+        
         expect(subject.pin_code).not_to eq(account.pin_code)
     end
 
@@ -35,7 +33,7 @@ describe Account do
     end
 
     it 'is set account to disabled using the instance method' do
-        #You use Instance Methods when you need to act on a particular instance of the class.
+
         subject.disable
         expect(subject.account_status).to eq :disabled
     end

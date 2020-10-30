@@ -1,6 +1,5 @@
 class Account
     STANDARD_VALIDITY_YRS = 5
-    # The magic number is a number that means something to the writer but the reader does not understand, for example, why the number is what it is?. Therefore, the number should have a name and  it would be a constant, meaning it can't be changed, so we need to write it in capitalized. Since it is a contstant, it should only belong to the class.
 
     attr_accessor :pin_code, :balance, :account_status, :exp_date, :owner
 
@@ -29,7 +28,6 @@ class Account
         else
             @owner = owner
         end
-    #A ternary operator is made of three parts, that’s where the word “ternary” comes from. These parts include a conditional statement & two possible outcomes.
     end
 
     def missing_owner
