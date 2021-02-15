@@ -1,8 +1,10 @@
-# atm_challenge_2020
+# ATM Challenge
 
-## The Code
+## Description
 
-We write an ATM project to allow a person to create an account, be able to deposite and withdraw money by using ATM machine.
+We created a digital ATM to allow users to create an account, be able to deposit and withdraw money.
+
+## User Stories
 
 ```
 As a User       
@@ -21,9 +23,7 @@ We want to assign each account to a separate person
 ```
 ## Dependencies
 
-Source 'https://rubygems.org'
-
-- gem 'rspec'
+- RSpec
 
 ## Setup
 
@@ -84,15 +84,12 @@ puts person.withdraw(amount: 50, pin_code: (your given pincode), atm: atm) # ðŸ‘
 ```
 ## Acknowledgements
 
-Craft academy learning materials 
-
-Our teammates 
-
-Our coaches
+- Course material from [Craft Academy](https://www.craftacademy.se/english/)
 
 ## Improvements plans
 
-We know our written codes are not really great. There are definitely flaws so we plan to refactor some methods in the three classes to be more effiecient, clean and precise.
+We know our written codes are not really great. There are definitely flaws so we plan to refactor some methods in the three classes to be more efficient, clean and precise.
 
-## License under MIT license
+## License
+MIT license
 
